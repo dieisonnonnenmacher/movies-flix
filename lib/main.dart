@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'landing_page.dart';
+import 'routes.dart';
 
 void main() {
   runApp(const MainApp());
@@ -30,7 +30,8 @@ class MainApp extends StatelessWidget {
           onSurface: Colors.white
           ),
       ),
-      home: const LandingPage(),
+      initialRoute: '/',
+      routes: routes,
     );
   }
 }
