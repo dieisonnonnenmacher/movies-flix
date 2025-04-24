@@ -1,8 +1,13 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_flix/buttons/primary_button.dart';
 
+import 'customFields/formularioFormField.dart';
+
 class Login extends StatelessWidget {
-  const Login({super.key});
+  Login({super.key});
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,36 +30,44 @@ class Login extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.mail),
-                    prefixIconColor: Colors.green,
-                    helperText: 'inactive',
-                    labelText: 'Email',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                  ),
+                child: FormularioFormField(
+                  controller: emailController,
+                  prefixIcon: Icon(Icons.mail),
+                  helperText: 'inactive',
+                  labelText: 'Email',
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    prefixIconColor: Colors.green,
-                    helperText: 'inactive',
-                    labelText: 'Password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                  ),
+                child: FormularioFormField(
+                  labelText: 'Password',
+                  controller: passwordController,
+                  prefixIcon: Icon(Icons.lock),
+                  helperText: 'inactive',
                 ),
               ),
               PrimaryButton(onPressed: () {}, text: 'Login'),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('Haven’t made an account?'),
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Haven’t made an account? ',
+                    children: [
+                      TextSpan(
+                        text: 'Sing Up',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          decoration: TextDecoration.underline,
+                        ),
+                        recognizer:
+                            TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.pushNamed(context, ' singnup');
+                              },
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
