@@ -50,7 +50,12 @@ class LandingPage extends StatelessWidget {
                   },
                   text: "Login",
                 ),
-                SecondayButton(onPressed: () {}, text: "Sign Up"),
+                SecondayButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/signup');
+                  },
+                  text: "Sign Up",
+                ),
               ],
             ),
           ),
