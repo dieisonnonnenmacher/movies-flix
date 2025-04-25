@@ -4,6 +4,8 @@ import 'package:movies_flix/buttons/seconday_button.dart';
 import 'buttons/primary_button.dart';
 
 class LandingPage extends StatelessWidget {
+  static const String route = '/landing';
+
   const LandingPage({super.key});
 
   @override

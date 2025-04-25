@@ -1,13 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_flix/buttons/primary_button.dart';
-import 'package:movies_flix/customFields/formularioFormField.dart';
 
-class SignUp extends StatelessWidget {
-  SignUp({super.key});
+import 'customFields/formularioFormField.dart';
+
+class Login extends StatelessWidget {
+  Login({super.key});
+  static const String route = '/login';
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final userController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class SignUp extends StatelessWidget {
             children: [
               SizedBox(height: 100),
               Text(
-                "Sign Up",
+                "Login",
                 style: TextStyle(
                   fontSize: 24,
                   height: 5.2,
@@ -40,30 +42,21 @@ class SignUp extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: FormularioFormField(
-                  labelText: 'Username',
-                  controller: passwordController,
-                  prefixIcon: Icon(Icons.account_box),
-                  helperText: 'inactive',
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: FormularioFormField(
                   labelText: 'Password',
                   controller: passwordController,
                   prefixIcon: Icon(Icons.lock),
                   helperText: 'inactive',
                 ),
               ),
-              PrimaryButton(onPressed: () {}, text: 'Create Account'),
+              PrimaryButton(onPressed: () {}, text: 'Login'),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: RichText(
                   text: TextSpan(
-                    text: 'Already have an account? ',
+                    text: 'Haven’t made an account? ',
                     children: [
                       TextSpan(
-                        text: 'Login',
+                        text: 'Sign Up',
                         style: TextStyle(
                           color: Colors.blue,
                           decoration: TextDecoration.underline,
@@ -71,7 +64,7 @@ class SignUp extends StatelessWidget {
                         recognizer:
                             TapGestureRecognizer()
                               ..onTap = () {
-                                Navigator.pushNamed(context, '/login');
+                                Navigator.pushNamed(context, '/signup');
                               },
                       ),
                     ],
