@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movies_flix/landing_page.dart';
 
 import 'routes.dart';
 
@@ -13,7 +12,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(
         textTheme: GoogleFonts.getTextTheme(
           'Inter',
@@ -30,8 +29,7 @@ class MainApp extends StatelessWidget {
           onSurface: Colors.white,
         ),
       ),
-      initialRoute: LandingPage.route,
-      routes: routes,
+      routerConfig: routes,
     );
   }
 }

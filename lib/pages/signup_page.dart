@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movies_flix/buttons/primary_button.dart';
 import 'package:movies_flix/customFields/formularioFormField.dart';
+import 'package:movies_flix/pages/login_page.dart';
 
 class SignUp extends StatelessWidget {
   SignUp({super.key});
@@ -73,7 +75,7 @@ class SignUp extends StatelessWidget {
                         recognizer:
                             TapGestureRecognizer()
                               ..onTap = () {
-                                Navigator.pushNamed(context, '/login');
+                                context.push(Login.route);
                               },
                       ),
                     ],
