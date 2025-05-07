@@ -1,10 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movies_flix/buttons/primary_button.dart';
+import 'package:movies_flix/components/buttons/primary_button.dart';
 import 'package:movies_flix/pages/signup_page.dart';
 
-import '../customFields/formularioFormField.dart';
+import '../components/customFields/formularioFormField.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});

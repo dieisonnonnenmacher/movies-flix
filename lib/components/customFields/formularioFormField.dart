@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_flix/customFields/FormularioFormFieldState.dart';
+import 'package:movies_flix/components/customFields/FormularioFormFieldState.dart';
 
 class FormularioFormField extends StatefulWidget {
   final String labelText;

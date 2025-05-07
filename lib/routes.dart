@@ -4,6 +4,7 @@ import 'package:movies_flix/pages/favorites_page.dart';
 import 'package:movies_flix/pages/home_page.dart';
 import 'package:movies_flix/pages/landing_page.dart';
 import 'package:movies_flix/pages/login_page.dart';
+import 'package:movies_flix/pages/movie_page.dart';
 import 'package:movies_flix/pages/signup_page.dart';
 
 final routes = GoRouter(
@@ -23,6 +24,7 @@ final routes = GoRouter(
       path: LandingPage.route,
       builder: (context, state) => LandingPage(),
     ),
+    GoRoute(path: MoviePage.route, builder: (context, state) => MoviePage()),
     ShellRoute(
       builder: (context, state, child) {
         return Scaffold(

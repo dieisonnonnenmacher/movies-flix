@@ -6,17 +6,21 @@ class MovieRepository {
   final Dio client = Dio(
     BaseOptions(
       baseUrl: AppConfig.instance.baseUrl,
-      headers: {'Authorization': 'Bearer '},
+      headers: {
+        'Authorization': 'Bearer  ${AppConfig.instance.apiKey}',
+        'accept': 'application/json',
+      },
       queryParameters: {'language': 'pt-BR'},
     ),
   );
 
   Future<List<Movie>> getMovies() async {
     final response = await client.get(
-      '/discovery/movie',
+      '/discover/movie',
       queryParameters: {'page': 1},
     );
-    print(response.data);
-    return [];
+    return (response.data['results'] as List)
+        .map((movie) => Movie.fromJson(movie))
+        .toList();
   }
 }

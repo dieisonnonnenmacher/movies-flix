@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movies_flix/buttons/seconday_button.dart';
+import 'package:movies_flix/components/buttons/seconday_button.dart';
 
-import '../buttons/primary_button.dart';
+import '../components/buttons/primary_button.dart';
 
 class LandingPage extends StatelessWidget {
   static const String route = '/landing';

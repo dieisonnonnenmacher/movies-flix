@@ -9,7 +9,7 @@ class Movie {
     return Movie(
       id: json['id'],
       title: json['title'],
-      imagePath: json['imagePath'],
+      imagePath: json['poster_path'],
     );
   }
 }
