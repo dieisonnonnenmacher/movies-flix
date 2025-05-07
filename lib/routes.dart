@@ -24,7 +24,6 @@ final routes = GoRouter(
       path: LandingPage.route,
       builder: (context, state) => LandingPage(),
     ),
-    GoRoute(path: MoviePage.route, builder: (context, state) => MoviePage()),
     ShellRoute(
       builder: (context, state, child) {
         return Scaffold(
@@ -51,6 +50,11 @@ final routes = GoRouter(
           name: 'home',
           path: HomePage.route,
           builder: (context, state) => HomePage(),
+        ),
+        GoRoute(
+          name: 'movie_page',
+          path: MoviePage.route,
+          builder: (context, state) => MoviePage(),
         ),
         GoRoute(
           name: 'favorites',
