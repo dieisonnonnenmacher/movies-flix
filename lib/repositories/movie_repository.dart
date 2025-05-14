@@ -26,32 +26,36 @@ class MovieRepository {
     return _preferences!;
   }
 
-  Future<List<Movie>> getMovies() async {
-    final response = await client.get(
-      '/discover/movie',
-      queryParameters: {'page': 1},
-    );
-
-    final movies =
-        (response.data['results'] as List)
-            .map((movie) => Movie.fromJson(movie))
-            .toList();
+  Future<void> saveMoviesDb(String categoryKey, List<Movie> movies) async {
     final storage = await db;
     storage.setStringList(
-      moviesKey,
+      categoryKey,
       movies.map((movie) => movie.toJson).toList(),
     );
-    return movies;
   }
 
-  Future<List<Movie>> getMoviesDb() async {
+  Future<List<Movie>> getMoviesDb(String categoryKey) async {
     final storage = await db;
 
-    final movies = storage.getStringList(moviesKey);
+    final movies = storage.getStringList(categoryKey);
 
     if (movies == null || movies.isEmpty) {
       return [];
     }
     return movies.map((movie) => Movie.fromJson(jsonDecode(movie))).toList();
+  }
+
+  Future<List<Movie>> getMovies(String category) async {
+    final response = await client.get(
+      '/movie/$category',
+      queryParameters: {'page': 1},
+    );
+    final movies =
+        (response.data['results'] as List)
+            .map((movie) => Movie.fromJson(movie))
+            .toList();
+    saveMoviesDb(category, movies);
+
+    return movies;
   }
 }
