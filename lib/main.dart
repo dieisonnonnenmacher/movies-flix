@@ -12,26 +12,24 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(
-        textTheme: GoogleFonts.getTextTheme('Inter').apply(
-          bodyColor: Colors.white,
-          displayColor: Colors.white,
-        ),
+        textTheme: GoogleFonts.getTextTheme(
+          'Inter',
+        ).apply(bodyColor: Colors.white, displayColor: Colors.white),
         colorScheme: const ColorScheme(
-          brightness: Brightness.light, 
-          primary: Colors.green, 
-          onPrimary: Colors.black, 
-          secondary: Colors.transparent, 
-          onSecondary: Colors.green, 
-          error: Colors.red, 
-          onError: Colors.white, 
-          surface: Colors.black, 
-          onSurface: Colors.white
-          ),
+          brightness: Brightness.light,
+          primary: Colors.green,
+          onPrimary: Colors.black,
+          secondary: Colors.transparent,
+          onSecondary: Colors.green,
+          error: Colors.red,
+          onError: Colors.white,
+          surface: Colors.black,
+          onSurface: Colors.white,
+        ),
       ),
-      initialRoute: '/',
-      routes: routes,
+      routerConfig: routes,
     );
   }
 }

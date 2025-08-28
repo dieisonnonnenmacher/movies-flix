@@ -1,11 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_flix/buttons/primary_button.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movies_flix/components/buttons/primary_button.dart';
+import 'package:movies_flix/pages/signup_page.dart';
 
-import 'customFields/formularioFormField.dart';
+import '../components/customFields/formularioFormField.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
+  static const String route = '/login';
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -46,7 +50,12 @@ class Login extends StatelessWidget {
                   helperText: 'inactive',
                 ),
               ),
-              PrimaryButton(onPressed: () {}, text: 'Login'),
+              PrimaryButton(
+                onPressed: () {
+                  context.goNamed('home');
+                },
+                text: 'Login',
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: RichText(
@@ -54,7 +63,7 @@ class Login extends StatelessWidget {
                     text: 'Haven’t made an account? ',
                     children: [
                       TextSpan(
-                        text: 'Sing Up',
+                        text: 'Sign Up',
                         style: TextStyle(
                           color: Colors.blue,
                           decoration: TextDecoration.underline,
@@ -62,7 +71,7 @@ class Login extends StatelessWidget {
                         recognizer:
                             TapGestureRecognizer()
                               ..onTap = () {
-                                Navigator.pushNamed(context, ' singnup');
+                                context.push(SignUp.route);
                               },
                       ),
                     ],

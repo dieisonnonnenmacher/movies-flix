@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:movies_flix/buttons/seconday_button.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movies_flix/components/buttons/seconday_button.dart';
 
-import 'buttons/primary_button.dart';
+import '../components/buttons/primary_button.dart';
 
 class LandingPage extends StatelessWidget {
+  static const String route = '/landing';
+
   const LandingPage({super.key});
 
   @override
@@ -45,12 +48,13 @@ class LandingPage extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 10),
                 ),
                 PrimaryButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/login');
-                  },
+                  onPressed: () => context.goNamed('login'),
                   text: "Login",
                 ),
-                SecondayButton(onPressed: () {}, text: "Sign Up"),
+                SecondayButton(
+                  onPressed: () => context.goNamed('signup'),
+                  text: "Sign Up",
+                ),
               ],
             ),
           ),
